@@ -3,21 +3,22 @@
   margin: 0;
 }
 
+
 .player {
   background-color: #60a4dc;
-  width: 660px;
-  height: 350px;
+  width: 500px;
+  height: 290px;
   position: absolute;
   transform: translate(-50%, -50%);
   left: 50%;
   top: 50%;
   border-radius: 8px;
-  box-shadow: 0 60px 0 0 #538dbd;
+  box-shadow: 0 50px 0 0 #538dbd;
 }
 
 .record {
-  height: 300px;
-  width: 300px;
+  height: 250px;
+  width: 250px;
   background-color: #181312;
   border-radius: 50%;
   position: absolute;
@@ -26,6 +27,23 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.record:before,
+.record:after {
+  position: absolute;
+  content: "";
+  border: 5px solid transparent;
+  border-top-color: #2c2424;
+  border-bottom-color: #2c2424;
+  border-radius: 50%;
+}
+.record:before {
+  height: 135px;
+  width: 135px;
+}
+.record:after {
+  height: 95px;
+  width: 95px;
 }
 
 .slider {
@@ -43,3 +61,51 @@
   border-radius: 3px;
   border: 1px solid #000000;
 }
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 8px;
+  height: 20px;
+  background: #02140e;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+.label {
+  background-color: #181312;
+  height: 20px;
+  width: 20px;
+  border: 20px solid #c5ff3e;
+  border-radius: 50%;
+}
+
+.btn {
+  height: 28px;
+  width: 28px;
+  background-color: #cfc20b;
+  border-radius: 50%;
+  position: absolute;
+  bottom: -40px;
+  right: 30px;
+  border: none;
+  border: 3.5px solid #bdb10d;
+  outline: none;
+  cursor: pointer;
+}
+
+.play {
+  transform: rotate(30deg);
+  transform-origin: top;
+  transition: 1s;
+}
+.on {
+  animation: spin 3s 1s linear infinite;
+}
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+

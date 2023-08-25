@@ -14,7 +14,9 @@
 
 
   <body>
-
+    <canvas id="record_player" width="300" height="300">
+    </canvas>
+   
     <div class="player">
       <div class="record">
         <div class="label"></div>
@@ -22,7 +24,7 @@
       <div class="tone-arm">
         <div class="control"></div>
       </div>
-      <button class="btn"></button>
+      <button class="btn">play/stop</button>
       <div class="slider-container">
         <input
           type="range"
@@ -34,8 +36,7 @@
         />
       </div>
     </div>
-    <audio loop class="my-song" src="Home.mp3" preload="auto"></audio>
-    <!-- Script -->
-    <script src="script.js"></script>
+
+ 
   </body>
 </html>
