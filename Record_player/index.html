@@ -15,6 +15,9 @@
 
   <body>
     <canvas id="record_player" width="300" height="300">
+      <audio controls src="">
+        
+      </audio>
     </canvas>
    
     <div class="player">
@@ -25,16 +28,18 @@
         <div class="control"></div>
       </div>
       <button id="playButton">Play Audio</button>
+      
+      <button onclick="enableMute()" id="mute" type="button">Mute sound</button>
+      <button onclick="disableMute()" type="button">Enable sound</button>
+      <button onclick="checkMute()" type="button">Check muted status</button><br> 
 
-      <div class="slider-container">
-        <input
-          type="range"
-          class="slider"
-          min="0"
-          max="1"
-          step="0.1"
-          value="0.7"
-        />
+			<input type="range" id="volume" class="control-volume" min="0" max="2" value="1" list="gain-vals" step="0.01" data-action="volume" />
+			<datalist id="gain-vals">
+				<option value="0" label="min">
+				<option value="2" label="max">
+			</datalist>
+			<label for="volume">VOL</label>
+     
       </div>
     </div>
 

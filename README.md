@@ -1,9 +1,19 @@
 # JavaScriptProject
 In Record Player, users will be able to:
-    { Listen to Music }
-    { Pause, speed up, slow down, and change the song}
-    { move the needle to change what the song is playing }
-    { rewind the music by dragging record}
+    -Play/Pause Audio
+    -Uploading dynamic music/Save music
+    -Speed up and slow down music
+    -Mixer to manipulate the audio
 
-I dont really plan on using any data APIs, if anything I will try to get an API that
-has access to music and sound effects.
+I plan on using a web music api and Canvas
+
+wireframe sketch: https://wireframe.cc/oEzUKI
+
+Implementation Timeline:
+Thursday: get Audio API working, use canvas to build basic design
+Friday: finish integrating audio api, get it to pause and play
+Saturday:uploading and saving music, canvas and styling
+Sunday: get speed up and slow down music working
+Monday:get audio manipulation/mixing to work
+Tuesday: fixing any bugs/ styling
+Wednesday:fixing any broken features /styling

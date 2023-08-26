@@ -6,19 +6,15 @@
   margin: 0;
 }
 
+.btn {
+  height: 50px;
+  width: 50px;
+}
+
 canvas {
   padding-left: 0;
   padding-right: 0;
   margin-left: auto;
   margin-right: auto;
   display: block;
-}
-
-.btn {
-  height: 50px;
-  width: 50px;
-}
-
-#main {
-  color: purple;
 }
