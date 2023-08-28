@@ -25,7 +25,7 @@ function animate(){
 
 
 
-const songUrl = 'https://spotify23.p.rapidapi.com/tracks/?ids=24pXGqFW7Ep5wbT9caFKYz';
+const songUrl = 'https://spotify-web2.p.rapidapi.com/playlist_tracks/?id=6HV2lBp82zscNRlHrwAZ9G&offset=0&limit=100';
 const song = new Song(songUrl);
 
 // const audioCtx = new AudioContext();
@@ -87,16 +87,13 @@ mute.addEventListener('click',() =>{
 
     // //// NEXT STEPS: MAKE A PLAYLIST OF SONGS AND LEARN HOW TO SWITCH SONGS
 
-// const button2 = document.getElementById('button2');
-// button2.addEventListener('click', playSound);
-// function playSound(){
-//     const oscillator = audioCtx.createOscillator();
-//     oscillator.connect(audioCtx.destination);
-//     oscillator.type = 'triangle';
-//     oscillator.start();
-//     setTimeout(function(){
-//         oscillator.stop();
-//     }, 1000);
-// }
+const button2 = document.getElementById('button2');
+button2.addEventListener('click', async function(){
+    audio.src = await song.nextSong();
+    debugger
+    audio.play();
+    animate();
+    isPlaying = true;
+});
 
  });

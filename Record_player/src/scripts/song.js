@@ -4,15 +4,16 @@ export default class Song {
       this.audioContext = null;
       this.source = null;
       this.muted = false;
+      this.songIndex = 0;
   }
 
   async fetchSongData() {
-    const url = 'https://spotify23.p.rapidapi.com/tracks/?ids=24pXGqFW7Ep5wbT9caFKYz';
+    const url = 'https://spotify-web2.p.rapidapi.com/playlist_tracks/?id=6HV2lBp82zscNRlHrwAZ9G&offset=0&limit=100';
     const options = {
         method: 'GET',
         headers: {
             'X-RapidAPI-Key': '511fdf43ebmsh7a179f82558f1b5p145ef3jsn80b50bfe3a92',
-            'X-RapidAPI-Host': 'spotify23.p.rapidapi.com'
+            'X-RapidAPI-Host': 'spotify-web2.p.rapidapi.com'
         }
     };
     
@@ -30,8 +31,31 @@ export default class Song {
     let songData = await this.fetchSongData();
     debugger
     console.log('song retrieved');
-     return  songData.tracks[0].preview_url;
+     return  songData.items[this.songIndex].track.preview_url;
+
   }
+ async nextSong(){
+  let songData = await this.fetchSongData();
+  this.songIndex = (this.songIndex + 1) % songData.items.length;
+  console.log("song data")
+  console.log(this.songIndex);
+  return songData.items[this.songIndex].track.preview_url;
 
 
+  // let currentSong = await this.getAudio();
+  //   debugger
+  //   let i = 0
+  //   while(i < songData.items.length){
+  //     debugger
+  //     if (currentSong === songData.items[i].track.preview_url){
+  //       return songData.items[i].track.preview_url;
+  //       debugger
+  //     }else {
+  //     return songData.items[i].track.preview_url;
+  //     }
+  //   }
+  }
+  prevSong(){
+    
+  }
 }
