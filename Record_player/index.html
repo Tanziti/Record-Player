@@ -15,30 +15,15 @@
 
   <body>
     <canvas id="record_player" width="300" height="300">
-      <audio controls src="">
+      
+    </canvas>
+   <audio controls id="audio_player">
         
       </audio>
-    </canvas>
-   
-    <div class="player">
-      <div class="record">
-        <div class="label"></div>
-      </div>
-      <div class="tone-arm">
-        <div class="control"></div>
-      </div>
-      <button id="playButton">Play Audio</button>
       
-      <button onclick="enableMute()" id="mute" type="button">Mute sound</button>
-      <button onclick="disableMute()" type="button">Enable sound</button>
-      <button onclick="checkMute()" type="button">Check muted status</button><br> 
-
-			<input type="range" id="volume" class="control-volume" min="0" max="2" value="1" list="gain-vals" step="0.01" data-action="volume" />
-			<datalist id="gain-vals">
-				<option value="0" label="min">
-				<option value="2" label="max">
-			</datalist>
-			<label for="volume">VOL</label>
+      <button id="button1">Play/Stop</button>
+      <button id="button2">button2</button>
+      <button id="mute">mute/unmute</button>
      
       </div>
     </div>

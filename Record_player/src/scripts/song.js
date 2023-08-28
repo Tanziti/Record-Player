@@ -7,69 +7,83 @@ export default class Song {
   }
 
   async fetchSongData() {
-      try {
-          const response = await fetch(this.url, {
-              method: 'GET',
-              headers: {
-                  'X-RapidAPI-Key': '511fdf43ebmsh7a179f82558f1b5p145ef3jsn80b50bfe3a92',
-                  'X-RapidAPI-Host': 'spotify23.p.rapidapi.com'
-              }
-          });
-
-          const result = await response.json();
-          return result;
-      } catch (error) {
-          console.error(error);
-      }
+    const url = 'https://spotify23.p.rapidapi.com/tracks/?ids=0HvXK1CtTjBs6hV06uU25M';
+    const options = {
+        method: 'GET',
+        headers: {
+            'X-RapidAPI-Key': '511fdf43ebmsh7a179f82558f1b5p145ef3jsn80b50bfe3a92',
+            'X-RapidAPI-Host': 'spotify23.p.rapidapi.com'
+        }
+    };
+    
+    try {
+        const response = await fetch(url, options);
+        const result = await response.json();
+        console.log(result);
+        return result
+    } catch (error) {
+        console.error(error);
+    }
+  }
+  
+  async getAudio(){
+    let songData = await this.fetchSongData();
+    debugger
+    console.log('song retrieved');
+     return  songData.tracks[0].preview_url;
   }
 
-  async getAudio() {
-    // Check if the AudioContext is not already initialized
-    if (!this.audioContext) {
-        // Fetch song data using the fetchSongData method
-        const songData = await this.fetchSongData();
 
-        // Check if song data was retrieved
-        if (songData) {
-            // Get the audio URL from the song data
-            const audioUrl = songData.tracks[0].preview_url;
 
-            // Check if there is an audio URL
-            if (audioUrl) {
-                // Create a new AudioContext
-                this.audioContext = new AudioContext();
 
-                // Fetch the audio data and decode it into an audio buffer
-                const audioBuffer = await fetch(audioUrl)
-                    .then(response => response.arrayBuffer())
-                    .then(data => this.audioContext.decodeAudioData(data));
+//   async getAudio() {
+//     // Check if the AudioContext is not already initialized
+//     if (!this.audioContext) {
+//         // Fetch song data using the fetchSongData method
+//         const songData = await this.fetchSongData();
+//         debugger
 
-                // Create a BufferSource node and connect it to the destination
-                this.source = this.audioContext.createBufferSource();
-                this.source.buffer = audioBuffer;
-                this.source.connect(this.audioContext.destination);
+//         // Check if song data was retrieved
+//         if (songData) {
+//             // Get the audio URL from the song data
+//             const audioUrl = songData.tracks[0].preview_url;
+//             debugger
+//             // Check if there is an audio URL
+//             if (audioUrl) {
+//                 // Create a new AudioContext
+//                 this.audioContext = new AudioContext();
+//                 debugger
+//                 // Fetch the audio data and decode it into an audio buffer
+//                 const audioBuffer = await fetch(audioUrl)
+//                     .then(response => response.arrayBuffer())
+//                     .then(data => this.audioContext.decodeAudioData(data));
+//                 debugger
+//                 // Create a BufferSource node and connect it to the destination
+//                 this.source = this.audioContext.createBufferSource();
+//                 this.source.buffer = audioBuffer;
+//                 this.source.connect(this.audioContext.destination);
+//                 debugger
+//                 // Create a GainNode and connect the source to it
+//                 this.source.gainNode = this.audioContext.createGain();
+//                 this.source.connect(this.source.gainNode);
+//                 this.source.gainNode.connect(this.audioContext.destination);
                 
-                // Create a GainNode and connect the source to it
-                this.source.gainNode = this.audioContext.createGain();
-                this.source.connect(this.source.gainNode);
-                this.source.gainNode.connect(this.audioContext.destination);
-                
-                // Start playing the audio
-                this.source.start();
-            } else {
-                console.log('No preview URL available for audio');
-            }
-        } else {
-            console.log('No song data found');
-        }
-    } else {
-        // Stop the audio and clean up
-        this.source.stop();
-        this.audioContext.close();
-        this.audioContext = null;
-        this.source = null;
-    }
-}
+//                 // Start playing the audio
+//                 this.source.start();
+//             } else {
+//                 console.log('No preview URL available for audio');
+//             }
+//         } else {
+//             console.log('No song data found');
+//         }
+//     } else {
+//         // Stop the audio and clean up
+//         this.source.stop();
+//         this.audioContext.close();
+//         this.audioContext = null;
+//         this.source = null;
+//     }
+// }
 
   toggleAudio() {
     console.log('Before toggle - Gain:', this.source.gainNode.gain.value);
