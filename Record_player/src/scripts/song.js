@@ -7,25 +7,43 @@ export default class Song {
       this.songIndex = 0;
   }
 
-  async fetchSongData() {
-    const url = 'https://spotify-web2.p.rapidapi.com/playlist_tracks/?id=6HV2lBp82zscNRlHrwAZ9G&offset=0&limit=100';
-    const options = {
-        method: 'GET',
-        headers: {
-            'X-RapidAPI-Key': '511fdf43ebmsh7a179f82558f1b5p145ef3jsn80b50bfe3a92',
-            'X-RapidAPI-Host': 'spotify-web2.p.rapidapi.com'
-        }
-    };
-    
-    try {
-        const response = await fetch(url, options);
-        const result = await response.json();
-        console.log(result);
-        return result
-    } catch (error) {
-        console.error(error);
+ 
+    // const clientId = '1d4bf99c88854b4f91c4f6c5013ed995';
+    // const clientSecret = '91954bbad64a4d36a485953d1bf5e801';
+    // debugger
+    // const result = await fetch('https://accounts.spotify.com/api/token', {
+    //   method: 'post',
+    //   headers: {
+    //     'Content-Type' : 'application/x-www-form-urlencoded',
+    //     'Authorization' : 'Basic ' + btoa( clientId + ':' + clientSecret)
+    //   },
+    //   body: 'grant_type=client_credentials'
+    // });
+    //   const data = await result.json();
+    //   debugger
+    //   console.log(data.access_token);
+    //   let token = data.access_token;
+
+
+    async fetchSongData() {
+      const url = 'https://spotify-web2.p.rapidapi.com/playlist_tracks/?id=6HV2lBp82zscNRlHrwAZ9G&offset=0&limit=100';
+      const options = {
+          method: 'GET',
+          headers: {
+              'X-RapidAPI-Key': 'd2fe1d3f6dmsh1490e167b6701eep1fde0ejsnefe0222631a8',
+              'X-RapidAPI-Host': 'spotify81.p.rapidapi.com'
+          }
+      };
+      
+      try {
+          const response = await fetch(url, options);
+          const result = await response.json();
+          console.log(result);
+          return result
+      } catch (error) {
+          console.error(error);
+      }
     }
-  }
   
   async getAudio(){
     let songData = await this.fetchSongData();
@@ -40,22 +58,8 @@ export default class Song {
   console.log("song data")
   console.log(this.songIndex);
   return songData.items[this.songIndex].track.preview_url;
-
-
-  // let currentSong = await this.getAudio();
-  //   debugger
-  //   let i = 0
-  //   while(i < songData.items.length){
-  //     debugger
-  //     if (currentSong === songData.items[i].track.preview_url){
-  //       return songData.items[i].track.preview_url;
-  //       debugger
-  //     }else {
-  //     return songData.items[i].track.preview_url;
-  //     }
-  //   }
   }
   prevSong(){
-    
+    //create
   }
 }
