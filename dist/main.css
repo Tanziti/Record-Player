@@ -71,6 +71,7 @@ body {
   white-space: nowrap;
   margin-left: 40%;
   margin-right: 50%;
+  margin-top: 10px;
 }
 
 .button:focus {
@@ -99,11 +100,16 @@ body {
 .links {
   display: block;
   margin-left: 20px;
-  margin-top: 50px;
+  margin-top: 60px;
+}
+
+.clickme {
+  display: block;
+  margin-left: 125px;
 }
 
 #record_player {
-  width: 500px;
+  width: 55%;
   height: 300px;
   padding-left: 0;
   padding-right: 0;
@@ -150,6 +156,19 @@ body {
   color: #000;
   text-decoration: none;
   cursor: pointer;
+}
+
+#volume_slider {
+  margin-right: auto;
+  margin-left: 60%;
+  display: block;
+  margin-top: -50px;
+}
+
+#speed_slider {
+  margin-right: auto;
+  margin-left: 70%;
+  display: block;
 }
 
 .records {

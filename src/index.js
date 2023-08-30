@@ -97,6 +97,9 @@ mute.addEventListener('click',() =>{
 const nextSong = document.getElementById('button2');
 nextSong.addEventListener('click', async function(){
     audio.src = await song.nextSong();
+    record1.classList.remove("on");
+    record2.classList.remove("on");
+    record3.classList.remove("on");
     playbackSpeed.value = 100;
     isPlaying = true;
     setTimeout(()=>{
@@ -114,6 +117,9 @@ nextSong.addEventListener('click', async function(){
 const prevSong = document.getElementById('prevSong')
 prevSong.addEventListener('click', async function(){
     audio.src = await song.prevSong();
+    record1.classList.remove("on");
+    record2.classList.remove("on");
+    record3.classList.remove("on");
     playbackSpeed.value = 100;
     isPlaying = true;
     setTimeout(()=>{
@@ -130,15 +136,16 @@ prevSong.addEventListener('click', async function(){
 })
 
 let record1 = document.getElementById('record1');
-   record1.addEventListener('mouseover', function(){
-    record1.classList.add("on");
-    setTimeout(() => {
-        record1.classList.remove("on")
-    }, 10000)
+
+   record1.addEventListener('mouseleave', function(){
+    record1.classList.remove("on")
    })
-    record1.addEventListener('click', async function(){
-        document.body.style.backgroundImage = "url('./src/red_yellow.jpg')";
-        let select = await song.fetchSongData();
+   record1.addEventListener('click', async function(){
+       let select = await song.fetchSongData();
+       record3.classList.remove("on");
+       record2.classList.remove("on");
+       record1.classList.add("on");
+       document.body.style.backgroundImage = "url('./src/red_yellow.jpg')";
         audio.src = select.items[9].track.preview_url;
         playbackSpeed.value = 100;
         setTimeout(()=>{
@@ -153,13 +160,10 @@ let record1 = document.getElementById('record1');
     }, 1000)
     })
     let record2 = document.getElementById('record2');
-    record2.addEventListener('mouseover', function(){
-        record2.classList.add("on");
-        setTimeout(() => {
-            record2.classList.remove("on")
-        }, 10000)
-       })
     record2.addEventListener('click', async function(){
+        record3.classList.remove("on");
+        record1.classList.remove("on");
+        record2.classList.add("on");
         document.body.style.backgroundImage = "url('./src/blue.jpg')";
         let select = await song.fetchSongData();
         audio.src = select.items[14].track.preview_url;
@@ -177,15 +181,13 @@ let record1 = document.getElementById('record1');
     }, 1000)
     })
     let record3 = document.getElementById('record3');
-    record3.addEventListener('mouseover', function(){
-        record3.classList.add("on");
-        setTimeout(() => {
-            record3.classList.remove("on")
-        }, 10000)
-       })
+
     record3.addEventListener('click', async function(){
-        document.body.style.backgroundImage = "url('./src/green.jpg')";
         let select = await song.fetchSongData();
+        record1.classList.remove("on");
+        record2.classList.remove("on");
+        record3.classList.add("on");
+        document.body.style.backgroundImage = "url('./src/green.jpg')";
         audio.src = select.items[19].track.preview_url;
         playbackSpeed.value = 100;
         isPlaying = true;
@@ -211,5 +213,10 @@ playbackSpeed.addEventListener('input', function(){
     let audioSpeed = playbackSpeed.value / 100;
     audio.playbackRate = audioSpeed;
 } )
+
+let arm = document.getElementById('control')
+arm.addEventListener('click', ()=>{
+    
+})
 
 });

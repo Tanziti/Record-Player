@@ -1,5 +1,5 @@
 #record_player{
-  width: 500px;
+  width: 55%;
   height: 300px;
   padding-left: 0;
   padding-right: 0;
@@ -45,4 +45,15 @@
   color: #000;
   text-decoration: none;
   cursor: pointer;
+}
+#volume_slider {
+  margin-right: auto;
+  margin-left: 60%;
+  display: block;
+  margin-top: -50px;
+}
+#speed_slider {
+  margin-right: auto;
+  margin-left: 70%;
+  display: block;
 }

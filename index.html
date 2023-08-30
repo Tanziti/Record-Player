@@ -14,15 +14,22 @@
     <canvas id="record_player">
       <audio controls id="audio_player"></audio>
     </canvas>
+   
+          <label id="volume_slider">Volume</label>
+      <label id="speed_slider">Speed</label>
+    
       <button id="button1" class="button">Play/Pause</button>
       <button id="prevSong" class="button">Prev Song</button>
       <button id="button2" class="button">Next Song</button>
       <button id="mute" class="button">(Un)Mute</button>
       <div class="tone-arm">
-        <div class="control"></div>
+        <div id="control" class="control"></div>
       </div>
-      <label></label>
+      
+
+    
       <input type="range" min="0" max="100" value="70" class="slider" id="volume" >
+    
       <input type="range" min="75" max="125" value="100" class="slider" id="playback">
       <div class ="favorites">
       <button class="records" id="record1"></button>
