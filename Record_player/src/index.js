@@ -38,10 +38,10 @@ let isPlaying = false;
 
 const audio = document.getElementById('audio_player')
 
-// async function getSong(){
-//     audio.src = await song.getAudio();
-// }
-// getSong();
+async function getSong(){
+    audio.src = await song.getAudio();
+}
+getSong();
 
 
 let toneArm = document.querySelector(".tone-arm");
