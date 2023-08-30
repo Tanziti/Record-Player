@@ -1,21 +1,15 @@
 $color: purple;
 
-* {
-  padding: 0;
-  margin: 0;
-  background-color: #d3d3d3;
- 
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
- 
-}
 
+body {
+  background-size: cover;
+  background-image: url(../src/colorbackground.png);
+}
 .slider {
-  margin-bottom: -10px;
+ 
   transform: rotate(270deg);
   -webkit-appearance: none;
-  
+  width: 100px;
   height: 10px;
   background: #818589;
   outline: none;
@@ -39,25 +33,25 @@ $color: purple;
 }
 
 #volume {
-  margin-top: -50px;
-  margin-right: 200px;
+  margin-right: auto;
+  margin-left: 60%;
+  display: block;
+  margin-top: -250px;
+  // margin-left: 700px;
 }
 #playback {
-  margin-left: 200px;
- 
+  margin-right: auto;
+  margin-left: 65%;
+  display: block;
+  // margin-left: 650px;
 }
 
-
-
-
-
-/* CSS */
 .button {
   appearance: button;
   background-color: #000;
   border: 1px solid #000;
   border-radius: 4px;
-  box-shadow: #fff 4px 4px 0 0,#000 4px 4px 0 1px;
+  box-shadow: #939090 4px 4px 0 0,#000 4px 4px 0 1px;
   box-sizing: border-box;
   color: #fff;
   cursor: pointer;
@@ -74,6 +68,8 @@ $color: purple;
   user-select: none;
   -webkit-user-select: none;
   white-space: nowrap;
+  margin-left: 40%;
+  margin-right: 50%;
 }
 
 .button:focus {
@@ -90,7 +86,7 @@ $color: purple;
 }
 
 .button:not([disabled]):active {
-  box-shadow: #fff 2px 2px 0 0, #000 2px 2px 0 1px;
+  box-shadow: #605e5e 2px 2px 0 0, #000 2px 2px 0 1px;
   transform: translate(2px, 2px);
 }
 
@@ -98,4 +94,9 @@ $color: purple;
   .button {
     padding: 12px 50px;
   }
+}
+
+a {
+  display: block;
+  margin-left: 60%;
 }

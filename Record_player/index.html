@@ -9,23 +9,34 @@
     <script src="./dist/main.js"></script>
     <title>Record Player</title>
 </head>
-
-
-
-
   <body>
-    <canvas id="record_player" width="300" height="300">
-      <audio controls id="audio_player">
+    <canvas id="record_player">
+      <audio controls id="audio_player"></audio>
     </canvas>
-    </audio>
-      
+    
+     
       <button id="button1" class="button">Play/Pause</button>
+      <button id="prevSong" class="button">Prev Song</button>
       <button id="button2" class="button">Next Song</button>
       <button id="mute" class="button">(Un)Mute</button>
       
+      <div class="tone-arm">
+        <div class="control"></div>
+      </div>
+      <label></label>
       <input type="range" min="0" max="100" value="70" class="slider" id="volume" >
       <input type="range" min="75" max="125" value="100" class="slider" id="playback">
-
- 
+      <div class ="favorites">
+      <button class="records" id="record1"></button>
+      <br>
+      <button class="records" id="record2"></button>
+      <br>
+      <button class="records" id="record3"></button>
+      </div>
+     
+      <a href=""><img src="https://img.icons8.com/ios-filled/50/000000/linkedin.png">
+      </a>
+      <a href=""><img src=" https://img.icons8.com/sf-ultralight/52/000000/github.png">
+      </a>
   </body>
 </html>
