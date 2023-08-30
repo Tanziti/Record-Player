@@ -36,7 +36,8 @@ body {
   margin-right: auto;
   margin-left: 60%;
   display: block;
-  margin-top: -250px;
+  margin-top: -275px;
+  
   // margin-left: 700px;
 }
 #playback {
@@ -57,7 +58,7 @@ body {
   cursor: pointer;
   height: 25px;
   width: 25px;
-  font-family: ITCAvantGardeStd-Bk,Arial,sans-serif;
+  font-family: "Papyrus";
   font-size: 10px;
   font-weight: 200;
   line-height: 10px;
@@ -71,6 +72,7 @@ body {
   margin-left: 40%;
   margin-right: 50%;
   margin-top: 10px;
+  
 }
 
 .button:focus {
@@ -101,20 +103,4 @@ body {
   display: block;
  margin-left: 20px;
  margin-top: 60px;
-}
-
-.clickme {
-  display: block;
-  margin-left: 125px;
-
-}
-#clickme1 {
-
-
-}
-#clickme2 {
-
-}
-#clickme3 {
-
 }

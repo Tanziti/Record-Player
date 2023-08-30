@@ -38,7 +38,7 @@ body {
   margin-right: auto;
   margin-left: 60%;
   display: block;
-  margin-top: -250px;
+  margin-top: -275px;
 }
 
 #playback {
@@ -58,7 +58,7 @@ body {
   cursor: pointer;
   height: 25px;
   width: 25px;
-  font-family: ITCAvantGardeStd-Bk, Arial, sans-serif;
+  font-family: "Papyrus";
   font-size: 10px;
   font-weight: 200;
   line-height: 10px;
@@ -101,11 +101,6 @@ body {
   display: block;
   margin-left: 20px;
   margin-top: 60px;
-}
-
-.clickme {
-  display: block;
-  margin-left: 125px;
 }
 
 #record_player {
@@ -160,15 +155,22 @@ body {
 
 #volume_slider {
   margin-right: auto;
-  margin-left: 60%;
+  margin-left: 58%;
   display: block;
-  margin-top: -50px;
+  margin-top: -60px;
+  font-family: "Papyrus";
 }
 
 #speed_slider {
   margin-right: auto;
-  margin-left: 70%;
+  margin-left: 72%;
   display: block;
+  font-family: "Papyrus";
+}
+
+p {
+  font-family: "Papyrus";
+  font-size: 25px;
 }
 
 .records {

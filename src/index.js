@@ -37,11 +37,11 @@ const song = new Song(songUrl);
 let isPlaying = false;
 
 const audio = document.getElementById('audio_player')
-
-async function getSong(){
-    audio.src = await song.getAudio();
-}
-getSong();
+audio.volume = .25;
+// async function getSong(){
+//     audio.src = await song.getAudio();
+// }
+// getSong();
 
 
 let toneArm = document.querySelector(".tone-arm");
@@ -50,7 +50,9 @@ button1.addEventListener('click', function(){
     console.log('click');
     
     if (!isPlaying) {
-        toneArm.classList.add("play");
+        if (!audio.muted) {
+            toneArm.classList.add("play");
+        }
         setTimeout( () => {
         audio.play(); 
         animate();
@@ -78,6 +80,7 @@ const mute = document.getElementById('mute')
 mute.addEventListener('click',() =>{
 
     if (audio.muted === true){
+        mute.innerText = 'Mute';
         toneArm.classList.add("play")
         setTimeout(() =>{
         audio.muted = false;
@@ -85,6 +88,7 @@ mute.addEventListener('click',() =>{
         
         console.log("audio unmuted")
     } else {
+         mute.innerText = "UnMute"   
          toneArm.classList.remove("play");
         audio.muted = true;
         console.log("audio muted")
@@ -216,7 +220,19 @@ playbackSpeed.addEventListener('input', function(){
 
 let arm = document.getElementById('control')
 arm.addEventListener('click', ()=>{
-    
+    if (!isPlaying) {
+        toneArm.classList.add("play");
+        setTimeout( () => {
+        audio.play(); 
+        animate();
+        }, 1000)
+        isPlaying = true;
+    } else { 
+        audio.pause();
+        toneArm.classList.remove("play");
+        console.log('music paused')
+        isPlaying = false;
+    }
 })
 
 });
