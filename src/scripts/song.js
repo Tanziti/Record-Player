@@ -47,7 +47,6 @@ export default class Song {
     
   async getAudio(){
     let songData = await this.fetchSongData();
-    debugger
     console.log('song retrieved');
      return  songData.items[this.songIndex].track.preview_url;
 
@@ -63,10 +62,10 @@ export default class Song {
     let songData = await this.fetchSongData();
     if (this.songIndex === 0){
       this.songIndex = songData.items.length ;
-      debugger
+     
     }
   this.songIndex = (this.songIndex - 1) % songData.items.length;
-  debugger
+
   console.log("song data")
   console.log(this.songIndex);
   return songData.items[this.songIndex].track.preview_url;

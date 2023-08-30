@@ -38,10 +38,10 @@ let isPlaying = false;
 
 const audio = document.getElementById('audio_player')
 audio.volume = .25;
-// async function getSong(){
-//     audio.src = await song.getAudio();
-// }
-// getSong();
+async function getSong(){
+    audio.src = await song.getAudio();
+}
+getSong();
 
 
 let toneArm = document.querySelector(".tone-arm");
@@ -101,6 +101,9 @@ mute.addEventListener('click',() =>{
 const nextSong = document.getElementById('button2');
 nextSong.addEventListener('click', async function(){
     audio.src = await song.nextSong();
+    if (!audio.muted) {
+        toneArm.classList.add("play");
+    }
     record1.classList.remove("on");
     record2.classList.remove("on");
     record3.classList.remove("on");
@@ -121,6 +124,9 @@ nextSong.addEventListener('click', async function(){
 const prevSong = document.getElementById('prevSong')
 prevSong.addEventListener('click', async function(){
     audio.src = await song.prevSong();
+    if (!audio.muted) {
+        toneArm.classList.add("play");
+    }
     record1.classList.remove("on");
     record2.classList.remove("on");
     record3.classList.remove("on");
@@ -146,6 +152,9 @@ let record1 = document.getElementById('record1');
    })
    record1.addEventListener('click', async function(){
        let select = await song.fetchSongData();
+       if (!audio.muted) {
+        toneArm.classList.add("play");
+    }
        record3.classList.remove("on");
        record2.classList.remove("on");
        record1.classList.add("on");
@@ -165,6 +174,9 @@ let record1 = document.getElementById('record1');
     })
     let record2 = document.getElementById('record2');
     record2.addEventListener('click', async function(){
+        if (!audio.muted) {
+            toneArm.classList.add("play");
+        }
         record3.classList.remove("on");
         record1.classList.remove("on");
         record2.classList.add("on");
@@ -187,6 +199,7 @@ let record1 = document.getElementById('record1');
     let record3 = document.getElementById('record3');
 
     record3.addEventListener('click', async function(){
+     
         let select = await song.fetchSongData();
         record1.classList.remove("on");
         record2.classList.remove("on");
@@ -201,7 +214,9 @@ let record1 = document.getElementById('record1');
         
         toneArm.classList.remove('play');
         setTimeout(()=>{
-        toneArm.classList.add("play");
+            if (!audio.muted){
+          toneArm.classList.add("play");
+        }
         setTimeout(() => {
              audio.play();
         }, 1000)
