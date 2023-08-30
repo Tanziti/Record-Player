@@ -92,7 +92,44 @@ mute.addEventListener('click',() =>{
    
     })
 
-   let record1 = document.getElementById('record1');
+   
+
+const nextSong = document.getElementById('button2');
+nextSong.addEventListener('click', async function(){
+    audio.src = await song.nextSong();
+    playbackSpeed.value = 100;
+    isPlaying = true;
+    setTimeout(()=>{
+        resetAnime();
+    }, 750)
+    toneArm.classList.remove('play');
+    setTimeout(()=>{
+    toneArm.classList.add("play");
+    setTimeout(() => {
+         audio.play();
+    }, 1000)
+}, 1000)
+   console.log('next song')
+});
+const prevSong = document.getElementById('prevSong')
+prevSong.addEventListener('click', async function(){
+    audio.src = await song.prevSong();
+    playbackSpeed.value = 100;
+    isPlaying = true;
+    setTimeout(()=>{
+        resetAnime();
+    }, 750)
+    toneArm.classList.remove('play');
+    setTimeout(()=>{
+    toneArm.classList.add("play");
+    setTimeout(() => {
+         audio.play();
+    }, 1000)
+}, 1000)
+   console.log('prev song')
+})
+
+let record1 = document.getElementById('record1');
    record1.addEventListener('mouseover', function(){
     record1.classList.add("on");
     setTimeout(() => {
@@ -164,41 +201,6 @@ mute.addEventListener('click',() =>{
         }, 1000)
     }, 1000)
     })
-
-const nextSong = document.getElementById('button2');
-nextSong.addEventListener('click', async function(){
-    audio.src = await song.nextSong();
-    playbackSpeed.value = 100;
-    isPlaying = true;
-    setTimeout(()=>{
-        resetAnime();
-    }, 750)
-    toneArm.classList.remove('play');
-    setTimeout(()=>{
-    toneArm.classList.add("play");
-    setTimeout(() => {
-         audio.play();
-    }, 1000)
-}, 1000)
-   console.log('next song')
-});
-const prevSong = document.getElementById('prevSong')
-prevSong.addEventListener('click', async function(){
-    audio.src = await song.prevSong();
-    playbackSpeed.value = 100;
-    isPlaying = true;
-    setTimeout(()=>{
-        resetAnime();
-    }, 750)
-    toneArm.classList.remove('play');
-    setTimeout(()=>{
-    toneArm.classList.add("play");
-    setTimeout(() => {
-         audio.play();
-    }, 1000)
-}, 1000)
-   console.log('prev song')
-})
 const volume_slider = document.getElementById("volume");
 volume_slider.addEventListener('input', function(){
     let audioVol = volume_slider.value / 100;

@@ -7,19 +7,17 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="./dist/main.css" />
     <script src="./dist/main.js"></script>
-    <title>Record Player</title>
+    <title>Zi's Record Player</title>
+    <link type="image/png" sizes="16x16" rel="icon" href="./src/favicon.png">
 </head>
   <body>
     <canvas id="record_player">
       <audio controls id="audio_player"></audio>
     </canvas>
-    
-     
       <button id="button1" class="button">Play/Pause</button>
       <button id="prevSong" class="button">Prev Song</button>
       <button id="button2" class="button">Next Song</button>
       <button id="mute" class="button">(Un)Mute</button>
-      
       <div class="tone-arm">
         <div class="control"></div>
       </div>
@@ -33,10 +31,38 @@
       <br>
       <button class="records" id="record3"></button>
       </div>
-     
-      <a href=""><img src="https://img.icons8.com/ios-filled/50/000000/linkedin.png">
+     <div class="links">
+      <a id='links' href="https://www.linkedin.com/in/tanzitian/"><img src="https://img.icons8.com/ios-filled/50/000000/linkedin.png">
       </a>
-      <a href=""><img src=" https://img.icons8.com/sf-ultralight/52/000000/github.png">
-      </a>
+      <a id='links' href="https://github.com/Tanziti/JavaScriptProject.git"><img src=" https://img.icons8.com/sf-ultralight/52/000000/github.png">
+      </a></div>
+      <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <p>Hi, this is Zi's Playlist! Enhanced by this interactive Record Player, please poke around!
+            Left Slider is Volume, and Right Slider is Speed! Have fun! Click disc to select a handpicked song!
+          </p>
+        </div>
+        <script>
+          // Get the modal
+          var modal = document.getElementById("myModal");
+          
+          // Get the <span> element that closes the modal
+          var span = document.getElementsByClassName("close")[0];
+          
+          // When the user clicks on <span> (x), close the modal
+          span.onclick = function() {
+            modal.style.display = "none";
+          }
+          
+          // When the user clicks anywhere outside of the modal, close it
+          window.onclick = function(event) {
+            if (event.target == modal) {
+              modal.style.display = "none";
+            }
+          }
+          </script>
   </body>
 </html>
