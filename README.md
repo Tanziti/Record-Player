@@ -1,4 +1,4 @@
-# JavaScriptProject
+# Record Player
 In Record Player, users will be able to:
     -Play/Pause Audio
     -Uploading dynamic music/Save music
